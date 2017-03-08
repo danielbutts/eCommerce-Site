@@ -1,7 +1,7 @@
 let products = [
   {
     id = "1001",
-    name = "Gears of War",
+    name = "Gears of War - Xbox One",
     description = "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image = "./images/gears_of_war.jpg",
     reviews = [
@@ -249,3 +249,10 @@ let shoppingCart = [
   {'1010': 1},
   {'1007': 1}
 ]
+
+function buildProducts() {
+  let prodEl = $(.products);
+  for (let product of products) {
+    prodEl.crea
+  }
+}

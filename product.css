@@ -1,0 +1,30 @@
+.product-thumb {
+  max-width: 100%;
+}
+
+.yellow {
+    color: orange;
+}
+
+.green {
+    color: lightgreen;
+}
+
+.gray {
+    color: lightgray;
+}
+
+a.plain-link {
+  text-decoration: none;
+}
+
+.inline-quantity {
+  width:40px;
+  color:black;
+  font-weight: bold;
+  display:inline-block;
+}
+
+span.tag {
+  line-height:28px;
+}

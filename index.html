@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>eCommerce Homepage</title>
-  <!-- Scrips -->
+  <!-- Scripts -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -12,6 +12,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
   <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
@@ -22,22 +24,22 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-          <a class="navbar-brand" href="#">GAME INFORMER</a>
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-height">
+            <a class="navbar-brand" href="#">GAME DESTROYER</a>
+          </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="#">Link1 </a></li>
-            <li><a href="#">Link2</a></li>
-            <li><a href="#">Link3</a></li>
+          <ul class="nav navbar-nav nav-height">
+            <li><a href="./product.html">SHOP NOW</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Your Cart</a></li>
+          <ul class="nav navbar-nav navbar-right nav-height">
+            <li><a href="./checkout.html">Your Cart</a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -46,35 +48,51 @@
     </nav>
   </header>
 
-  <main class="container">
-    <div class="">
-      HERO CAROUSEL
+  <main>
+    <div class="container">
+      <div class="row spacer">
+        <img class="img-responsive" src="./images/zelda hero.jpg" alt="zelda hero image">
+      </div>
+      <div class="row spacer-below">
+        <h2 class="text-center">FEATURED GAMES</h2>
+        <section class="col-xs-4 text-center">
+          <h4>FIRST FEATURED</h4>
+          <p>This game has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this and this and this has this and this and this has this and this and this
+            has this and this and this.</p>
+        </section>
+        <section class="col-xs-4 text-center">
+          <h4>SECOND FEATURED</h4>
+          <p>This game has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this and this and this has this and this and this has this and this and this
+            has this and this and this.</p>
+        </section>
+        <section class="col-xs-4 text-center">
+          <h4>THIRD FEATURED</h4>
+          <p>This game has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this and this and this has this and this and this has this and this and this
+            has this and this and this.</p>
+        </section>
+      </div>
     </div>
-    <div class="">
-      PRODUCTS CATEGORY
-    </div>
-    <div class="">
-      THREE FEATURED PRODUCTS
-    </div>
-    <div class="">
-      NEWSLETTER SIGNUP
-    </div>
-
+    <section class="container-fluid">
+      <div class="row spacer-below newsletter-height">
+        <h3 class="text-center white-font">- NEVER MISS A SALE AGAIN -</h3>
+        <h5 class="text-center white-font"> Sign up to get Game Destroyer news, we won't spam you!</h5>
+      </div>
+    </section>
   </main>
 
-  <footer class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container=fluid">
-      <section class='col-xs-3'>
-        YOOOOOO
+  <footer class="navbar navbar-default">
+    <div class="container-fluid">
+      <section class="col-xs-3">
+        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
       </section>
-      <section class='col-xs-3'>
-        YOOOOOO
+      <section class="col-xs-3">
+        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
       </section>
-      <section class='col-xs-3'>
-        YOOOOOO
+      <section class="col-xs-3">
+        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
       </section>
-      <section class='col-xs-3'>
-        YOOOOOO
+      <section class="col-xs-3">
+        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
       </section>
     </div>
   </footer>

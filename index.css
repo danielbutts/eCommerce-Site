@@ -1,3 +1,50 @@
+/*
+===============================
+Main styles
+===============================
+*/
+
 * {
   box-sizing: border-box;
+}
+
+/*
+===============================
+Header styles
+===============================
+*/
+
+.nav-height {
+  padding-top: 25px;
+  min-height: 100px;
+}
+
+/*
+===============================
+Element styles
+===============================
+*/
+
+.spacer-around {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.spacer-below {
+  margin-bottom: 20px;
+}
+
+.newsletter-height {
+  min-height: 230px;
+  background-color: #0099c2;
+}
+
+/*
+===============================
+Text styles
+===============================
+*/
+
+.white-font {
+  color: #ffffff;
 }

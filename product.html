@@ -14,39 +14,42 @@
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./product.css">
+    <script src="./product.js"></script>
+
   </head>
   <body>
-      <header>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <div class="nav-height">
-                <a class="navbar-brand" href="#">GAME DESTROYER</a>
-              </div>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-height">
+              <a class="navbar-brand brand-text" href="./index.html">GAME DESTROYER</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav nav-height">
-                <li><a href="./product.html">SHOP NOW</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right nav-height">
-                <li>
-                  <a class="no-dec" href="#"><span class="glyphicon glyphicon-shopping-cart gray"></span> <span class="gray">(3)</span></a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.navbar-collapse -->
           </div>
-          <!-- /.container-fluid -->
-        </nav>
-      </header>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav nav-height">
+              <li><a href="./product.html">SHOP NOW</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right nav-height">
+              <li>
+                <a class="plain-link" href="./checkout.html"><span class="glyphicon glyphicon-shopping-cart gray"></span> <span class="gray">Your Cart (3)</span></a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+    </header>
+
 
       <!-- <div id="clear">Clear</div>
       <div id="populate">Populate</div> -->
@@ -96,6 +99,55 @@
       </div>
 
     </div>
-    <script src="./product.js"></script>
+
+    <!-- Footer nav bar -->
+    <footer class="nav navbar-default">
+      <div class="container-fluid">
+        <section class="col-xs-3 margin-above-sm margin-below">
+          <h4 class="margin-below blue-font">Visit Us</h4>
+          <iframe width="320" height="310" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJk3rTwqRqkFQRktCVF51xLMg&key=AIzaSyCtXqpVcbvuF5qTavaahtDuYmDmTzdXWtY" allowfullscreen></iframe>
+        </section>
+        <section class="col-xs-3 margin-above-sm margin-below">
+          <h4 class="margin-below blue-font">New Releases</h4>
+          <div class="row">
+            <a href="./product.html">
+            <img class="inline-block margin-below margin-left" src="./images/batman.jpg" alt="batman icon" height="90" width="70">
+            <span class="h4">&#160&#160Batman: Arkham Knight</span>
+            </a>
+          </div>
+          <div class="row">
+            <a href="./product.html">
+            <img class="inline-block margin-below margin-left" src="./images/the_crew.jpg" alt="batman icon" height="90" width="70">
+            <span class="h4">&#160&#160The Crew</span>
+            </a>
+          </div>
+          <div class="row">
+            <a href="./product.html">
+            <img class="inline-block margin-below margin-left" src="./images/battlefield.jpg" alt="batman icon" height="90" width="70">
+            <span class="h4">&#160&#160Battlefield 1</span>
+            </a>
+          </div>
+        </section>
+        <section class="col-xs-3 margin-above-sm margin-below">
+          <h4 class="margin-below blue-font">Our Mission</h4>
+          <span class="mission-font">We want to bring you only the best games, only all the time, and only have you buy them from us. You'll never have to go anywhere else to buy anygame you could conceivably imagine. Get your controller out, and your wallet out faster, because we have some games to destroy.
+          </span>
+        </section>
+        <section class="col-xs-3 margin-above-sm margin-below">
+          <h4 class="margin-below blue-font">Site Map</h4>
+          <div class="row margin-left-sm margin-below footer-font">
+            <a href="./product.html">Shop Now</a>
+          </div>
+          <div class="row margin-left-sm margin-below footer-font">
+            <a href="./checkout.html">Your Cart</a>
+          </div>
+          <div class="row margin-left-sm footer-font">
+            <a href="https://www.youtube.com/watch?v=ZZ5LpwO-An4" target="_blank">Need a Little Break?</a>
+          </div>
+        </section>
+      </div>
+    </footer>
+
+
   </body>
 </html>

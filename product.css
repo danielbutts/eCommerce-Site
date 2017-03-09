@@ -14,17 +14,28 @@
     color: lightgray;
 }
 
-a.plain-link {
+a.no-dec {
   text-decoration: none;
 }
 
-.inline-quantity {
-  width:40px;
+.black {
   color:black;
   font-weight: bold;
+}
+
+span.top-margin {
+  margin-top:0px;
+}
+
+.block {
+  display:block;
+}
+
+.inline-block {
   display:inline-block;
 }
 
 span.tag {
   line-height:28px;
+  user-select: none;
 }

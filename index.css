@@ -1,15 +1,5 @@
 /*
 ===============================
-Main styles
-===============================
-*/
-
-* {
-  box-sizing: border-box;
-}
-
-/*
-===============================
 Header styles
 ===============================
 */
@@ -17,6 +7,13 @@ Header styles
 .nav-height {
   padding-top: 25px;
   min-height: 100px;
+}
+
+.brand-text {
+  color: #00c9e4 !important;
+  font-size: 45px;
+  font-family: futura !important;
+
 }
 
 /*
@@ -49,8 +46,16 @@ Element styles
   margin-left: 20px;
 }
 
+.margin-left-sm {
+  margin-left: 10px;
+}
+
 .padding-top {
   padding-top: 30px;
+}
+
+.padding.top-sm {
+  padding-top: 10px;
 }
 
 .newsletter-height {
@@ -67,10 +72,6 @@ Element styles
   display: inline-block;
 }
 
-.mission-font {
-  font-size: 20px;
-}
-
 /*
 ===============================
 Text styles
@@ -79,4 +80,26 @@ Text styles
 
 .white-font {
   color: #ffffff;
+}
+
+.alert-style {
+  font-size: 20px;
+  width: 700px;
+  margin: auto;
+}
+
+.mission-font {
+  font-size: 20px;
+}
+
+.footer-font {
+  font-size: 18px;
+}
+
+.no-underline {
+  text-decoration: none !important;
+}
+
+.blue-font {
+  color: #00c9e4 !important;
 }

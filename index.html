@@ -12,6 +12,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
   <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script defer src="index.js"></script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./index.css">
 </head>
@@ -30,7 +31,7 @@
             <span class="icon-bar"></span>
           </button>
           <div class="nav-height">
-            <a class="navbar-brand" href="#">GAME DESTROYER</a>
+            <a class="navbar-brand brand-text" href="./index.html">GAME DESTROYER</a>
           </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,7 +40,9 @@
             <li><a href="./product.html">SHOP NOW</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right nav-height">
-            <li><a href="./checkout.html">Your Cart</a></li>
+            <li>
+              <a class="plain-link" href="./checkout.html"><span class="glyphicon glyphicon-shopping-cart gray"></span> <span class="gray">Your Cart (3)</span></a>
+            </li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -49,50 +52,102 @@
   </header>
 
   <main>
+
+    <!-- Hero image and three featured games -->
     <div class="container">
-      <div class="row spacer">
+      <div class="row">
         <img class="img-responsive" src="./images/zelda hero.jpg" alt="zelda hero image">
       </div>
-      <div class="row spacer-below">
-        <h2 class="text-center">FEATURED GAMES</h2>
+      <div class="row margin-below-sm">
+        <h3 class="text-center margin-below">BEST-SELLING GAMES</h3>
         <section class="col-xs-4 text-center">
-          <h4>FIRST FEATURED</h4>
-          <p>This game has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this and this and this has this and this and this has this and this and this
-            has this and this and this.</p>
+          <a class="no-underline" href="./product.html">
+            <img class="margin-below-sm" src="./images/star_wars.jpg" width="180" alt="call of duty">
+          </a>
+          <a href="./product.html" class="row">Star Wars Battlefront: Ultimate Edition</a>
+          <span class="margin-left glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star-empty gray"></span>
+          <p>Now $40.95</p>
         </section>
         <section class="col-xs-4 text-center">
-          <h4>SECOND FEATURED</h4>
-          <p>This game has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this and this and this has this and this and this has this and this and this
-            has this and this and this.</p>
+          <a class="no-underline" href="./product.html">
+            <img class="margin-below-sm" src="./images/call_of_duty.jpg" width="180" alt="call of duty">
+          </a>
+          <a href="./product.html" class="row">Call of Duty: Infinite Warfare</a>
+          <span class="margin-left glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span>
+          <p>Now $40.95</p>
         </section>
         <section class="col-xs-4 text-center">
-          <h4>THIRD FEATURED</h4>
-          <p>This game has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this has this and this and this and this and this has this and this and this has this and this and this
-            has this and this and this.</p>
+          <a class="no-underline" href="./product.html">
+            <img class="margin-below-sm" src="./images/pac_man.jpg" width="180" alt="pac-man">
+          </a>
+          <a href="./product.html" class="row">Pac-Man: Championship Edition 2</a>
+          <span class="margin-left glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star gray"></span><span class="glyphicon glyphicon-star-empty gray"></span><span class="glyphicon glyphicon-star-empty gray"></span>
+          <p>Now $40.95</p>
         </section>
       </div>
     </div>
+
+    <!-- Newsletter signup form -->
     <section class="container-fluid">
-      <div class="row spacer-below newsletter-height">
-        <h3 class="text-center white-font">- NEVER MISS A SALE AGAIN -</h3>
-        <h5 class="text-center white-font"> Sign up to get Game Destroyer news, we won't spam you!</h5>
+      <div class="row newsletter-height padding-top">
+        <h3 class="text-center white-font">NEVER MISS A SALE AGAIN&#160&#160<span class="glyphicon glyphicon-envelope"></span></h3>
+        <h5 class="text-center white-font"> Sign up here to get Game Destroyer news, we won't spam you.</h5>
+        <form class="text-center margin-above margin-below" action="index.html" method="post">
+          <fieldset>
+            <input class="wide-field" id="email" type="email" name="email">
+            <input type="submit" value="I want game news!">
+          </fieldset>
+        </form>
+        <div id="div1" class="alert text-center alert-danger alert-style collapse">Don't forget to type something buddy!</div>
+        <div id="div2" class="alert text-center alert-success alert-style collapse">Thanks! Get ready for the best game news and deals.</div>
       </div>
     </section>
   </main>
 
-  <footer class="navbar navbar-default">
+  <!-- Footer nav bar -->
+  <footer class="nav navbar-default">
     <div class="container-fluid">
-      <section class="col-xs-3">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+      <section class="col-xs-3 margin-above-sm margin-below">
+        <h4 class="margin-below blue-font">Visit Us</h4>
+        <iframe width="320" height="310" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJk3rTwqRqkFQRktCVF51xLMg&key=AIzaSyCtXqpVcbvuF5qTavaahtDuYmDmTzdXWtY" allowfullscreen></iframe>
       </section>
-      <section class="col-xs-3">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+      <section class="col-xs-3 margin-above-sm margin-below">
+        <h4 class="margin-below blue-font">New Releases</h4>
+        <div class="row">
+          <a href="./product.html">
+          <img class="inline-block margin-below margin-left" src="./images/batman.jpg" alt="batman icon" height="90" width="70">
+          <span class="h4">&#160&#160Batman: Arkham Knight</span>
+          </a>
+        </div>
+        <div class="row">
+          <a href="./product.html">
+          <img class="inline-block margin-below margin-left" src="./images/the_crew.jpg" alt="batman icon" height="90" width="70">
+          <span class="h4">&#160&#160The Crew</span>
+          </a>
+        </div>
+        <div class="row">
+          <a href="./product.html">
+          <img class="inline-block margin-below margin-left" src="./images/battlefield.jpg" alt="batman icon" height="90" width="70">
+          <span class="h4">&#160&#160Battlefield 1</span>
+          </a>
+        </div>
       </section>
-      <section class="col-xs-3">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+      <section class="col-xs-3 margin-above-sm margin-below">
+        <h4 class="margin-below blue-font">Our Mission</h4>
+        <span class="mission-font">We want to bring you only the best games, only all the time, and only have you buy them from us. You'll never have to go anywhere else to buy anygame you could conceivably imagine. Get your controller out, and your wallet out faster, because we have some games to destroy.
+        </span>
       </section>
-      <section class="col-xs-3">
-        TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+      <section class="col-xs-3 margin-above-sm margin-below">
+        <h4 class="margin-below blue-font">Site Map</h4>
+        <div class="row margin-left-sm margin-below footer-font">
+          <a href="./product.html">Shop Now</a>
+        </div>
+        <div class="row margin-left-sm margin-below footer-font">
+          <a href="./checkout.html">Your Cart</a>
+        </div>
+        <div class="row margin-left-sm footer-font">
+          <a href="https://www.youtube.com/watch?v=ZZ5LpwO-An4" target="_blank">Need a Little Break?</a>
+        </div>
       </section>
     </div>
   </footer>

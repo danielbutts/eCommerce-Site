@@ -1,15 +1,5 @@
 /*
 ===============================
-Main styles
-===============================
-*/
-
-* {
-  box-sizing: border-box;
-}
-
-/*
-===============================
 Header styles
 ===============================
 */
@@ -19,24 +9,67 @@ Header styles
   min-height: 100px;
 }
 
+.brand-text {
+  color: #00c9e4 !important;
+  font-size: 45px;
+  font-family: futura !important;
+
+}
+
 /*
 ===============================
 Element styles
 ===============================
 */
 
-.spacer-around {
+.wide-field {
+  width: 300px;
+}
+
+.margin-above {
   margin-top: 20px;
+}
+
+.margin-above-sm {
+  margin-top: 10px;
+}
+
+.margin-below {
   margin-bottom: 20px;
 }
 
-.spacer-below {
-  margin-bottom: 20px;
+.margin-below-sm {
+  margin-bottom: 10px;
+}
+
+.margin-left {
+  margin-left: 20px;
+}
+
+.margin-left-sm {
+  margin-left: 10px;
+}
+
+.padding-top {
+  padding-top: 30px;
+}
+
+.padding.top-sm {
+  padding-top: 10px;
 }
 
 .newsletter-height {
-  min-height: 230px;
-  background-color: #0099c2;
+  min-height: 210px;
+  background: linear-gradient(to bottom, #0099c2 0%, #02d2df 100%);
+}
+
+.email-alert {
+  text-align: center;
+  font-size: 16px;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 /*
@@ -47,4 +80,26 @@ Text styles
 
 .white-font {
   color: #ffffff;
+}
+
+.alert-style {
+  font-size: 20px;
+  width: 700px;
+  margin: auto;
+}
+
+.mission-font {
+  font-size: 20px;
+}
+
+.footer-font {
+  font-size: 18px;
+}
+
+.no-underline {
+  text-decoration: none !important;
+}
+
+.blue-font {
+  color: #00c9e4 !important;
 }

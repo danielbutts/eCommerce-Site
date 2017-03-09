@@ -1,3 +1,8 @@
 .form-required {
   color: #ee5f5b;
 }
+
+.purchase-order-height {
+  min-height: 146px;
+  background: linear-gradient(to bottom, #0099c2 0%, #02d2df 100%);
+}

@@ -1,33 +1,39 @@
 $("form").submit(function(e) {
     e.preventDefault();
     let valid = true;
-    if (!validateName('#ship-firstname')) {
+
+    if (!validatePresence('#ship-firstname') &&
+        !validatePresence('#ship-firstname') &&
+        !validatePresence('#ship-lastname') &&
+        !validatePresence('#ship-address1') &&
+        !validatePresence('#bill-firstname') &&
+        !validatePresence('#bill-lastname') &&
+        !validatePresence('#bill-address1') &&
+        !validatePresence('#ship-state') &&
+        !validatePresence('#bill-state') &&
+        !validateZIP('#ship-zipcode') &&
+        !validateZIP('#bill-zipcode') &&
+        !validateCardNumber('#card-number') &&
+        !validateCardExp('#card-exp') &&
+        !validateCardCVC('#card-cvc')) {
         valid = false;
+        console.log("valid is false");
+    } else {
+        console.log("valid is true");
+        valid = true;
     }
-    if (!validateName('#ship-firstname')) {
-        valid = false;
-    }
-    valid = validateName('#ship-lastname')
+
 
     if (valid) {
-
-    }
-
-    console.log(cardExp);
-});
-
-function validateName(id) {
-    let input = $(id)
-    if (input.val() == '') {
-        input.parent().removeClass("has-success").addClass("has-error");
-        return false;
+      $("#submit-success").fadeIn(300).delay(3000).fadeOut(300);
+      $('.form-class-set').parent().removeClass("has-success").removeClass("has-error");
+      $('form')[0].reset()
     } else {
-        input.parent().addClass("has-success").removeClass("has-error");
+      $("#submit-fail").fadeIn(300).delay(3000).fadeOut(300);
     }
-    return true;
-}
-
-////// Form Field Variables ///////
+});
+///////////////////////////////////////////////////////////
+////// FORM FIELD VARIABLES //////////////////////////////
 
 // Variables: Shipping Form
 let shipFirstName = $('#ship-firstname');
@@ -50,114 +56,161 @@ let cardNumber = $('#card-number');
 let cardExp = $('#card-exp');
 let cardCVC = $('#card-cvc');
 
-//// FORM VALIDATION //////////////////////////////////////
+///////////////////////////////////////////////////////////
+//// FUNCTIONS -- FORM VALIDATION /////////////////////////
+
+// FUNCTION -- Presence Validation
+function validatePresence(id) {
+    let input = $(id)
+    if (input.val() == '') {
+        input.parent().removeClass("has-success").addClass("has-error");
+        return false;
+    } else {
+        input.parent().addClass("has-success").removeClass("has-error");
+    }
+    return true;
+}
+// FUNCTION -- ZIP Code Validation
+function validateZIP(id) {
+    let inputID = $(id)
+    let inputTest = $(id).val()
+    let isValid = /^\d{5}-?(\d{4})?$/.test(inputTest);
+    if (!isValid) {
+        inputID.parent().removeClass("has-success").addClass("has-error");
+        return false;
+    } else {
+        inputID.parent().addClass("has-success").removeClass("has-error");
+    }
+    return true;
+}
+
+// FUNCTION -- Card Number Validation
+function validateCardNumber(id) {
+    let inputID = $(id)
+    let inputTest = $(id).val()
+    let isValid = /\d{4}-?\d{4}-?\d{4}-?\d{4}?$/.test(inputTest);
+    if (!isValid) {
+        inputID.parent().removeClass("has-success").addClass("has-error");
+        return false;
+    } else {
+        inputID.parent().addClass("has-success").removeClass("has-error");
+    }
+    return true;
+}
+
+// FUNCTION -- Card Expiration Validation
+function validateCardExp(id) {
+    let inputID = $(id)
+    let inputTest = $(id).val()
+    let isValid = /^\d{2}\/?\d{2}?$/.test(inputTest);
+    if (!isValid) {
+        inputID.parent().removeClass("has-success").addClass("has-error");
+        return false;
+    } else {
+        inputID.parent().addClass("has-success").removeClass("has-error");
+    }
+    return true;
+}
+
+// FUNCTION -- Card CVC Validation
+function validateCardCVC(id) {
+    let inputID = $(id)
+    let inputTest = $(id).val()
+    let isValid = /^\d{3}$/.test(inputTest);
+    if (!isValid) {
+        inputID.parent().removeClass("has-success").addClass("has-error");
+        return false;
+    } else {
+        inputID.parent().addClass("has-success").removeClass("has-error");
+    }
+    return true;
+}
+
+///////////////////////////////////////////////////////////
+//// VALIDATION -- CHECKS /////////////////////////////////
 
 // First/Last Names & Address Can't Be Blank /////////////
 //// Shipping
 shipFirstName.blur(function() {
-    validateName('#ship-firstname')
+    validatePresence('#ship-firstname')
 });
 
 shipLastName.blur(function() {
-    validateName('#ship-lastname')
+    validatePresence('#ship-lastname')
 });
 
 shipAddress1.blur(function() {
-    console.log('blur');
-    if (shipAddress1.val() === '') {
-        shipAddress1.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        shipAddress1.parent().addClass("has-success").removeClass("has-error");
-    }
+    validatePresence('#ship-address1')
 });
 //// Billing
 billFirstName.blur(function() {
-    console.log('blur');
-    if (billFirstName.val() === '') {
-        billFirstName.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        billFirstName.parent().addClass("has-success").removeClass("has-error");
-    }
+    validatePresence('#bill-firstname')
 });
 billLastName.blur(function() {
-    console.log('blur');
-    if (billLastName.val() === '') {
-        billLastName.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        billLastName.parent().addClass("has-success").removeClass("has-error");
-    }
+    validatePresence('#bill-lastname')
 });
 billAddress1.blur(function() {
-    console.log('blur');
-    if (billAddress1.val() === '') {
-        billAddress1.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        billAddress1.parent().addClass("has-success").removeClass("has-error");
-    }
+    validatePresence('#bill-address1')
 });
 
 // State Field Can't Be Blank /////////////////////////
 //// Shipping
 shipState.blur(function() {
-    console.log('blur');
-    if (shipState.val() === '') {
-        shipState.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        shipState.parent().addClass("has-success").removeClass("has-error");
-    }
+    validatePresence('#ship-state')
 });
 //// Billing
 billState.blur(function() {
-    console.log('blur');
-    if (billState.val() === '') {
-        billState.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        billState.parent().addClass("has-success").removeClass("has-error");
-    }
+    validatePresence('#bill-state')
 });
 
-// ZIP Code Field Can't Be Blank
-//// Shipping
+// ZIP Code Field Validation
+//// Shipping ZIP
 shipZipCode.blur(function() {
-    console.log('blur');
-    if (shipZipCode.val() === '') {
-        shipZipCode.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        shipZipCode.parent().addClass("has-success").removeClass("has-error");
-    }
-});
-//// Billing
-billZipCode.blur(function() {
-    console.log('blur');
-    if (billZipCode.val() === '') {
-        billZipCode.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        billZipCode.parent().addClass("has-success").removeClass("has-error");
-    }
+    validateZIP('#ship-zipcode')
 });
 
-// Credit Card Fields Can't Be Blank
+//// Billing ZIP
+billZipCode.blur(function() {
+    validateZIP('#bill-zipcode')
+});
+
+// Credit Card Fields
+
+//// Card Number Validate
 cardNumber.blur(function() {
-    console.log('blur');
-    if (cardNumber.val() === '') {
-        cardNumber.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        cardNumber.parent().addClass("has-success").removeClass("has-error");
-    }
+    validateCardNumber('#card-number')
 });
+
+//// Card Expiration -- Format
+cardExp.ready(function() {
+    $("#card-exp").keyup(function(e) {
+        if (e.keyCode != 8) {
+            if ($(this).val().length == 2) {
+                $(this).val($(this).val() + "/");
+            }
+        }
+    });
+});
+//// Card Expiration Validate
 cardExp.blur(function() {
-    console.log('blur');
-    if (cardExp.val() === '') {
-        cardExp.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        cardExp.parent().addClass("has-success").removeClass("has-error");
-    }
+  validateCardExp('#card-exp')
 });
+
+//// Card CVC Code Validate
 cardCVC.blur(function() {
-    console.log('blur');
-    if (cardCVC.val() === '') {
-        cardCVC.parent().removeClass("has-success").addClass("has-error");
-    } else {
-        cardCVC.parent().addClass("has-success").removeClass("has-error");
+  validateCardCVC('#card-cvc')
+});
+
+///////////////////////////////////////////////////////////
+//// COPY SHIPPING to BILLING /////////////////////////////////
+$("#ship-bill").on("change", function() {
+    if (this.checked) {
+        billFirstName.val(shipFirstName.val())
+        billLastName.val(shipLastName.val())
+        billCompany.val(shipCompany.val())
+        billAddress1.val(shipAddress1.val())
+        billAddress2.val(shipAddress2.val())
+        billState.val(shipState.val())
+        billZipCode.val(shipZipCode.val())
     }
 });

@@ -43,7 +43,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right nav-height">
                         <li>
-                            <a class="plain-link" href="./checkout.html"><span class="glyphicon glyphicon-shopping-cart gray"></span> <span class="gray">Your Cart (3)</span></a>
+                            <a class="plain-link" href="./checkout.html"><span class="glyphicon glyphicon-shopping-cart gray"></span> <span class="gray">Your Cart (2)</span></a>
                         </li>
                     </ul>
                 </div>
@@ -57,54 +57,71 @@
 
     <!-- Receipt Section -->
     <div class="container">
-        <div class="col-xs-12">
-            <div class="row">
+        <!-- <div class="col-xs-12"> -->
+        <!-- <div class="row">
                 <div class="col-xs-12">
                     <h3>Your Order</h3>
                     <hr>
                 </div>
-            </div>
-            <div class="row">
-                <table class="table table-striped">
-                    <tr>
-                        <th></th>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                    </tr>
-                    <tr>
-                        <td class="receipt-img"><img src="images/battlefield.jpg" alt="battlefield"></td>
-                        <td>Product Name</td>
-                        <td>1</td>
-                        <td>$19.99</td>
-                    </tr>
-                    <tr>
-                        <td>IMG</td>
-                        <td>Product Name</td>
-                        <td>1</td>
-                        <td>$19.99</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <th class="text-right">SubTotal</th>
-                        <td>$39.98</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <th class="text-right">Shipping</th>
-                        <td>$4.99</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <th class="text-right">Total</th>
-                        <td>$44.97</td>
-                    </tr>
-                </table>
+            </div> -->
+        <div class="row">
+            <div class="col-xs-12 back-img">
+
+                <div class="col-xs-8 col-xs-offset-2">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Your Order</h3>
+                  </div>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th></th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td class="receipt-img"><img src="images/zelda2.png" alt="zelda"></td>
+                            <td>The Legend of Zelda: Breath of the Wild</td>
+                            <td>1</td>
+                            <td>$49.99</td>
+                            <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="receipt-img"><img src="images/battlefield.jpg" alt="battlefield"></td>
+                            <td>Battlefield 1</td>
+                            <td>1</td>
+                            <td>$19.99</td>
+                            <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <th class="text-right">SubTotal</th>
+                            <td>$69.98</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <th class="text-right">Shipping</th>
+                            <td>$4.99</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <th class="text-right">Total</th>
+                            <td>$74.97</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
             </div>
         </div>
+        <!-- </div> -->
     </div>
     <!-- Shipping and Billing Forms -->
     <div class="container">
@@ -334,7 +351,7 @@
         </div>
     </div>
     <!-- Purchase Order Area -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row purchase-order-height padding-top text-center">
             <input class="btn btn-default btn-lg" type="submit" name="submit" value="Place Order">
             <div id="submit-fail" class="alert text-center alert-danger alert-style collapse">Don't forget to type something buddy!</div>

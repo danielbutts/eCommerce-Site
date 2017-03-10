@@ -32,6 +32,10 @@ $("form").submit(function(e) {
       $("#submit-fail").fadeIn(300).delay(5000).fadeOut(300);
     }
 });
+
+$('.glyphicon-trash').on('click', function () {
+  $(this).parent().parent().remove()
+})
 ///////////////////////////////////////////////////////////
 ////// FORM FIELD VARIABLES //////////////////////////////
 

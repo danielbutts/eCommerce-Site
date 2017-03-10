@@ -103,3 +103,35 @@ Text styles
 .blue-font {
   color: #00c9e4 !important;
 }
+
+/*
+===============================
+Carousel styles
+===============================
+*/
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+.left-arrow {
+  font-size:5em;
+}
+
+.right-arrow {
+  font-size:5em;
+}
+
+.display {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}

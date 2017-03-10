@@ -1,12 +1,29 @@
 .form-required {
-  color: #ee5f5b;
+    color: #ee5f5b;
 }
 
 .purchase-order-height {
-  min-height: 146px;
-  background: linear-gradient(to bottom, #0099c2 0%, #02d2df 100%);
+    min-height: 146px;
+    background: linear-gradient(to bottom, #0099c2 0%, #02d2df 100%);
 }
 
 .receipt-img img {
-  width: 150px;
+    width: 120px;
+    height: 156px;
+}
+
+.hide-row {
+    display: none;
+}
+
+.back-img {
+    background: transparent url(./images/zelda-banner.jpg) no-repeat center top scroll;
+    background-size: 100% auto;
+}
+
+
+.vertical-center {
+    display: inline-block;
+    vertical-align: middle !important;
+    float: none;
 }

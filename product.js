@@ -3,18 +3,39 @@ document.addEventListener("DOMContentLoaded", function() {
   populateCategories();
   populateEsrbs();
   addEventsToSort();
+  addPurchaseEvent();
 
   activeProducts = products;
   sortBy = 'Title A-Z';
 
   sortProducts();
   populateProducts();
+  // fetchData();
+
+  let $xhr = $.ajax({
+      type: "GET",
+      url: 'http://galvanize-student-apis.herokuapp.com/gcommerce/products',
+      success: function( data ) {
+        for (let r of data) {
+          elId = `${r.id}-price`
+          let el = document.getElementById(`${r.id}-price`);
+          if (el != null) {
+            el.innerHTML = r.price.substring(1);
+
+            for (let p of products) {
+              if (p.id == r.id) {
+                p.price = r.price.substring(1);
+              }
+            }
+          }
+        }
+      },
+      dataType: 'json'
+    });
 
 });
 
 let sortBy;
-// let categoryFilters;
-// let esrbFilters;
 let activeProducts;
 let activeCategoryTags;
 let activeEsrbTags;
@@ -73,13 +94,7 @@ function sortProducts () {
 
 function getDisplayableProducts() {
   activeProducts = []
-  console.log('getDisplayableProducts');
-  console.log(activeCategoryTags);
-  console.log(activeEsrbTags);
-
-  console.log(products.length);
   for (let prod of products) {
-    console.log(prod);
     let catActive = false;
     let esrbActive = false;
     for (let cat of prod.categories) {
@@ -88,7 +103,6 @@ function getDisplayableProducts() {
         break;
       }
     }
-    console.log(activeEsrbTags);
     if (activeEsrbTags.includes(prod.esrbRating)) {
       esrbActive = true;
     }
@@ -105,42 +119,23 @@ function getDisplayableProducts() {
 
 
 function getFilterSet() {
-  console.log('getFilterSet');
   activeCategoryTags = []
-  // console.log(document.querySelectorAll('span.category'))
   for (let tag of document.querySelectorAll('span.category')) {
     if ($(tag).hasClass('label-success')) {
       activeCategoryTags.push($(tag).text());
     }
   }
-  console.log(activeCategoryTags);
 
   activeEsrbTags = []
-  // console.log(document.querySelectorAll('span.esrb'))
   for (let tag of document.querySelectorAll('span.esrb')) {
     if ($(tag).hasClass('label-danger')) {
       activeEsrbTags.push($(tag).text());
     }
   }
-  console.log(activeEsrbTags);
-
-
   getDisplayableProducts();
 }
 
-
-// function updateStoredTags(selector,activeLabel) {
-//   let obj = {}
-//   for (let tag of document.querySelectorAll(selector)) {
-//     obj[tag.innerHTML] = $(tag).hasClass(activeLabel);
-//   }
-//   getFilterSet();
-//   return obj;
-// }
-
-
 function clickTag (e) {
-  console.log('ClickTag');
   if($(e.target).hasClass('label-success')) {
     $(e.target).removeClass('label-success');
     $(e.target).addClass('label-default');
@@ -164,18 +159,15 @@ function clickTag (e) {
 }
 
 function doubleClickTag (e) {
-  console.log('doubleClickTag');
   $('.label.tag.category').removeClass('label-success');
   $('.label.tag.category').addClass('label-default');
   $(e.target).removeClass('label-default');
   $(e.target).addClass('label-success');
   getFilterSet();
 
-  // categoryStates = updateStoredTags('span.category','label-success');
 }
 
 function clickEsrb (e) {
-  console.log('clickEsrb');
   if($(e.target).hasClass('label-danger')) {
     $(e.target).removeClass('label-danger');
     $(e.target).addClass('label-default');
@@ -198,7 +190,6 @@ function clickEsrb (e) {
 }
 
 function doubleClickEsrb (e) {
-  console.log('doubleClickEsrb');
   $('.label.tag.esrb').removeClass('label-danger');
   $('.label.tag.esrb').addClass('label-default');
   $(e.target).removeClass('label-default');
@@ -210,24 +201,48 @@ function addEventsToSort () {
   $('.label.sort').click(clickSortBy);
 }
 
+function addPurchaseEvent () {
+  let spans = $('span.blah');
+  spans.click(addToCart);
+}
+
+function addToCart(e) {
+  let total = $('#cart-total').text();
+  let cartQty = $('#cart-qty').text();
+  let id = e.target.parentElement.id.split('-')[0]
+  let qty = $(`#${id}-quantity`).val();
+
+  let price = 0;
+  for (let p of products) {
+    if (p.id == id) {
+      price = p.price;
+    }
+  }
+
+  if (cart[id] != null) {
+    cart[id] = cart[id] + qty;
+  } else {
+    cart[id] = qty;
+  }
+
+  $('#cart-qty').text(parseInt(cartQty)+parseInt(qty),10);
+  $('#cart-total').text(parseInt(total)+parseInt(qty)*price,10);
+}
+
 function clickSortBy (e) {
-  console.log('clickSortBy');
   $('.label.sort').removeClass('label-warning');
   $('.label.sort').addClass('label-default');
   $(e.target).removeClass('label-default');
   $(e.target).addClass('label-warning');
 
-  // console.log(e.target.innerHTML);
   sortBy = e.target.innerHTML;
   sortProducts()
   clearProducts();
   populateProducts();
-
 }
 
 
 function populateCategories () {
-  console.log('populateCategories');
   let tagsEl = $('#tags');
   let tags = getTags();
   for (let tag in tags) {
@@ -242,7 +257,6 @@ function populateCategories () {
 }
 
 function getTags () {
-  console.log('getTags');
   let tags = {};
   for (let product of products) {
     for (let category of product.categories) {
@@ -259,7 +273,6 @@ function getTags () {
 
 
 function populateEsrbs () {
-  console.log('populateEsrbs');
   let esrbsEl = $('#esrbs');
   let esrbs = getEsrbs();
   for (let esrb in esrbs) {
@@ -274,11 +287,8 @@ function populateEsrbs () {
 }
 
 function getEsrbs () {
-  console.log('getEsrbs');
-
   let esrbs = {};
   for (let product of products) {
-    // console.log(product.esrbRating);
     if (esrbs[product.esrbRating]!=null) {
       esrbs[product.esrbRating] = esrbs[product.esrbRating] + 1;
     } else {
@@ -289,13 +299,11 @@ function getEsrbs () {
 }
 
 function clearProducts () {
-  console.log('clearProducts');
   let prodEl = $('.products');
   prodEl.empty();
 }
 
 function populateProducts () {
-  console.log('populateProducts');
   let prodEl = $('.products');
   for (let product of activeProducts) {
 
@@ -328,11 +336,11 @@ function populateProducts () {
 
       <div class="col-xs-8">
         <strong class="h4">${product.name}</strong>  &nbsp;${productTags}
-        <p class="h6">${product.description}</p>
+        <p class="h5">${product.description}</p>
 
         ${stars}
         <br>
-        <strong class="h5">$${product.price} ${discount}</strong>
+        <strong class="h5">$<span id="${product.id}-price">${product.price}</span> ${discount}</strong>
       </div>
       <div class="col-xs-2 text-right">
       <div>
@@ -350,13 +358,7 @@ function populateProducts () {
             <option value="10">10</option>
           </select>
         </span>
-        <span class="inline-block" height-25">
-          <span class="block line-height-10">&nbsp;</span>
-          <a id="${product.id}-buy-link" class="no-dec" href="#">&nbsp;
-            <span class="glyphicon glyphicon-share-alt green"></span><!--
-                  --><span class="glyphicon glyphicon-shopping-cart green"></span>
-          </a>
-        </span>
+        <span id="${product.id}-buy-link" class="testing-events"></span>
       </div>
       </div>
     </div>
@@ -364,11 +366,20 @@ function populateProducts () {
     `;
     prodEl.append(productListing);
   }
+
+  let el = $('.testing-events');
+  let arrowEl = document.createElement('span');
+  $(arrowEl).attr('class',"glyphicon glyphicon-share-alt green");
+  let cartEl = document.createElement('span');
+  $(cartEl).attr('class',"glyphicon glyphicon-shopping-cart green");
+  el.append(arrowEl);
+  el.append(cartEl);
+  el.click(addToCart);
 }
 
 products = [
   {
-    id : "1002",
+    id : "1",
     name : "Pac-Man Championship Edition 2 - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/pac_man.jpg",
@@ -391,7 +402,7 @@ products = [
     discount:0
   },
   {
-    id : "1003",
+    id : "2",
     name : "Call of Duty: Infinite Warfare - Xbox One Legacy Edition",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/call_of_duty.jpg",
@@ -414,7 +425,7 @@ products = [
     discount:0
   },
   {
-    id : "1001",
+    id : "3",
     name : "Gears of War - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/gears_of_war.jpg",
@@ -437,7 +448,7 @@ products = [
     discount:0
   },
   {
-    id : "1004",
+    id : "4",
     name : "Star Wars Battlefront Ultimate Edition - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/star_wars.jpg",
@@ -460,7 +471,7 @@ products = [
     discount:0
   },
   {
-    id : "1005",
+    id : "5",
     name : "The Crew - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/the_crew.jpg",
@@ -483,7 +494,7 @@ products = [
     discount:.45
   },
   {
-    id : "1006",
+    id : "6",
     name : "Resident Evil 7 Biohazard - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/resident_evil.jpg",
@@ -507,7 +518,7 @@ products = [
     discount:.5
   },
   {
-    id : "1007",
+    id : "7",
     name : "Tom Clancy's The Division - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/the_division.jpg",
@@ -529,7 +540,7 @@ products = [
     discount:.25
   },
   {
-    id : "1008",
+    id : "8",
     name : "Batman: Arkham Knight - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/batman.jpg",
@@ -553,7 +564,7 @@ products = [
     discount:.33
   },
   {
-    id : "1009",
+    id : "9",
     name : "Halo 5: Guardians",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/halo_5.jpg",
@@ -576,7 +587,7 @@ products = [
     discount:0
   },
   {
-    id : "1010",
+    id : "10",
     name : "Battlefield 1 - Xbox One",
     description : "- 25 Years after Gears of War 3, spurred by a series of strange disappearances, JD Fenix must embrace his father’s legacy and battle a terrifying new enemy.\n- Never Fight Alone: Enjoy two-player co-op with friends locally via split-screen, over Xbox Live or LAN. Player 2 can select either Kait or Del.\n- Redefined Cover Gameplay: New close-cover combat moves and combat-knife executions turn each piece of cover into an offensive opportunity.\n- Brutal New Weapons: An incredible arsenal of new weapons includes the Buzzkill and Dropshot, which can shoot around and over cover, raining destruction from all angles",
     image : "./images/battlefield.jpg",
@@ -597,7 +608,7 @@ products = [
     discount:.15
   },
   {
-    id : "1011",
+    id : "11",
     name : "Watch Dogs 2 - Xbox One",
     description : "Explore a massive and dynamic open world - Experience an incredible variety of gameplay possibilities.<br>Hack everything- Every person, vehicle and connected device can be hacked. Take control of drones, cars, cranes, and more to use them as your weapon.<br>Connect with friends - Play Co-op and Player vs. Player activities in a seamless shared world.<br>You are in CTRL - Develop your skills and combine hacking, weapons and stealth to complete missions in ways that suit your playstyle.<br>Welcome to the San Francisco Bay - Experience the winding streets of San Francisco, the vibrant neighborhoods of Oakland, and cutting edge Silicon Valley.",
     image : "./images/watch_dogs.jpg",
@@ -622,9 +633,4 @@ products = [
 ]
 
 
-let cart = [
-  //obj - key of item_id and value of quantity
-  {'1001': 2},
-  {'1010': 1},
-  {'1007': 1}
-]
+let cart = {};

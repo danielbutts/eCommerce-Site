@@ -6,3 +6,7 @@
   min-height: 146px;
   background: linear-gradient(to bottom, #0099c2 0%, #02d2df 100%);
 }
+
+.receipt-img img {
+  width: 150px;
+}

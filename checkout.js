@@ -25,11 +25,11 @@ $("form").submit(function(e) {
 
 
     if (valid) {
-      $("#submit-success").fadeIn(300).delay(3000).fadeOut(300);
+      $("#submit-success").fadeIn(300).delay(5000).fadeOut(300);
       $('.form-class-set').parent().removeClass("has-success").removeClass("has-error");
       $('form')[0].reset()
     } else {
-      $("#submit-fail").fadeIn(300).delay(3000).fadeOut(300);
+      $("#submit-fail").fadeIn(300).delay(5000).fadeOut(300);
     }
 });
 ///////////////////////////////////////////////////////////

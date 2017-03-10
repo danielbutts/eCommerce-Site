@@ -73,7 +73,7 @@
                         <th>Price</th>
                     </tr>
                     <tr>
-                        <td>IMG</td>
+                        <td class="receipt-img"><img src="images/battlefield.jpg" alt="battlefield"></td>
                         <td>Product Name</td>
                         <td>1</td>
                         <td>$19.99</td>
@@ -112,185 +112,196 @@
             <form>
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3 class="panel-title">Shipping</h3>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Shipping</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group col-xs-6">
+                                    <label class="control-label" for="ship-firstname">First Name <span class="form-required">*</span></label>
+                                    <input required type="text" class="form-control input-sm form-class-set" id="ship-firstname" placeholder="First Name">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label class="control-label" for="ship-lastname">Last Name <span class="form-required">*</span></label>
+                                    <input required type="text" class="form-control input-sm form-class-set" id="ship-lastname" placeholder="Last Name">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label class="control-label" for="ship-address1">Address Line 1 <span class="form-required">*</span></label>
+                                    <input required type="text" class="form-control input-sm form-class-set" id="ship-address1" placeholder="Address 1">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label for="ship-company">Company</label>
+                                    <input type="text" class="form-control input-sm" id="ship-company" placeholder="Company">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label for="ship-address2">Address Line 2</label>
+                                    <input type="text" class="form-control input-sm" id="ship-address2" placeholder="Address 2">
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    <label class="control-label" required for="ship-state">State <span class="form-required">*</span></label>
+                                    <select required class="form-control input-sm form-class-set" id="ship-state" placeholder="State" name="">
+                                    <option value="">Select</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AK">AK</option>
+                                    <option value="AZ">AZ</option>
+                                    <option value="AR">AR</option>
+                                    <option value="CA">CA</option>
+                                    <option value="CO">CO</option>
+                                    <option value="CT">CT</option>
+                                    <option value="DE">DE</option>
+                                    <option value="DC">DC</option>
+                                    <option value="FL">FL</option>
+                                    <option value="GA">GA</option>
+                                    <option value="HI">HI</option>
+                                    <option value="ID">ID</option>
+                                    <option value="IL">IL</option>
+                                    <option value="IN">IN</option>
+                                    <option value="IA">IA</option>
+                                    <option value="KS">KS</option>
+                                    <option value="KY">KY</option>
+                                    <option value="LA">LA</option>
+                                    <option value="ME">ME</option>
+                                    <option value="MD">MD</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MI">MI</option>
+                                    <option value="MN">MN</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MO">MO</option>
+                                    <option value="MT">MT</option>
+                                    <option value="NE">NE</option>
+                                    <option value="NV">NV</option>
+                                    <option value="NH">NH</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="NM">NM</option>
+                                    <option value="NY">NY</option>
+                                    <option value="NC">NC</option>
+                                    <option value="ND">ND</option>
+                                    <option value="OH">OH</option>
+                                    <option value="OK">OK</option>
+                                    <option value="OR">OR</option>
+                                    <option value="PA">PA</option>
+                                    <option value="RI">RI</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SD">SD</option>
+                                    <option value="TN">TN</option>
+                                    <option value="TX">TX</option>
+                                    <option value="UT">UT</option>
+                                    <option value="VT">VT</option>
+                                    <option value="VA">VA</option>
+                                    <option value="WA">WA</option>
+                                    <option value="WV">WV</option>
+                                    <option value="WI">WI</option>
+                                    <option value="WY">WY</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    <label class="control-label" for="ship-zipcode">ZIP <span class="form-required">*</span></label>
+                                    <input required type="text" class="form-control input-sm form-class-set" id="ship-zipcode" pattern="\d{5}-?(\d{4})?" maxlength="10" placeholder="ZIP">
+                                </div>
+                                <div class="col-xs-6 checkbox">
+                                    <label><input id="ship-bill" type="checkbox">Copy Shipping to Billing</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-
-                <div class="form-group col-xs-6">
-                    <label class="control-label" for="ship-firstname">First Name <span class="form-required">*</span></label>
-                    <input required type="text" class="form-control input-sm form-class-set" id="ship-firstname" placeholder="First Name">
-                </div>
-                <div class="form-group col-xs-6">
-                    <label class="control-label" for="ship-lastname">Last Name <span class="form-required">*</span></label>
-                    <input required type="text" class="form-control input-sm form-class-set" id="ship-lastname" placeholder="Last Name">
-                </div>
-                <div class="form-group col-xs-6">
-                    <label for="ship-company">Company</label>
-                    <input type="text" class="form-control input-sm" id="ship-company" placeholder="Company">
-                </div>
-                <div class="form-group col-xs-6">
-                    <label class="control-label" for="ship-address1">Address Line 1 <span class="form-required">*</span></label>
-                    <input required type="text" class="form-control input-sm form-class-set" id="ship-address1" placeholder="Address 1">
-                </div>
-                <div class="form-group col-xs-6">
-                    <label for="ship-address2">Address Line 2</label>
-                    <input type="text" class="form-control input-sm" id="ship-address2" placeholder="Address 2">
-                </div>
-                <div class="form-group col-xs-3">
-                    <label class="control-label" required for="ship-state">State <span class="form-required">*</span></label>
-                    <!-- <input type="select" class="form-control input-sm" id="input-state" placeholder="State"> -->
-                    <select required class="form-control input-sm form-class-set" id="ship-state" placeholder="State" name="">
-                      <option value="">Select</option>
-                      <option value="AL">AL</option>
-                      <option value="AK">AK</option>
-	                    <option value="AZ">AZ</option>
-                    	<option value="AR">AR</option>
-                    	<option value="CA">CA</option>
-                    	<option value="CO">CO</option>
-                    	<option value="CT">CT</option>
-                    	<option value="DE">DE</option>
-                    	<option value="DC">DC</option>
-                    	<option value="FL">FL</option>
-                    	<option value="GA">GA</option>
-                    	<option value="HI">HI</option>
-                    	<option value="ID">ID</option>
-                    	<option value="IL">IL</option>
-                    	<option value="IN">IN</option>
-                    	<option value="IA">IA</option>
-                    	<option value="KS">KS</option>
-                    	<option value="KY">KY</option>
-                    	<option value="LA">LA</option>
-                    	<option value="ME">ME</option>
-                    	<option value="MD">MD</option>
-                    	<option value="MA">MA</option>
-                    	<option value="MI">MI</option>
-                    	<option value="MN">MN</option>
-                    	<option value="MS">MS</option>
-                    	<option value="MO">MO</option>
-                    	<option value="MT">MT</option>
-                    	<option value="NE">NE</option>
-                    	<option value="NV">NV</option>
-                    	<option value="NH">NH</option>
-                    	<option value="NJ">NJ</option>
-                    	<option value="NM">NM</option>
-                    	<option value="NY">NY</option>
-                    	<option value="NC">NC</option>
-                    	<option value="ND">ND</option>
-                    	<option value="OH">OH</option>
-                    	<option value="OK">OK</option>
-                    	<option value="OR">OR</option>
-                    	<option value="PA">PA</option>
-                    	<option value="RI">RI</option>
-                    	<option value="SC">SC</option>
-                    	<option value="SD">SD</option>
-                    	<option value="TN">TN</option>
-                    	<option value="TX">TX</option>
-                    	<option value="UT">UT</option>
-                    	<option value="VT">VT</option>
-                    	<option value="VA">VA</option>
-                    	<option value="WA">WA</option>
-                    	<option value="WV">WV</option>
-                    	<option value="WI">WI</option>
-                    	<option value="WY">WY</option>
-                    </select>
-                </div>
-                <div class="form-group col-xs-3">
-                    <label class="control-label" for="ship-zipcode">ZIP <span class="form-required">*</span></label>
-                    <input required type="text" class="form-control input-sm form-class-set" id="ship-zipcode" pattern="\d{5}-?(\d{4})?" maxlength="10" placeholder="ZIP">
-                </div>
-                <div class="col-xs-6 checkbox">
-                    <label><input id="ship-bill" type="checkbox">Copy Shipping to Billing</label>
                 </div>
         </div>
         <div class="col-xs-6">
             <div class="row">
                 <div class="col-xs-12">
-                    <h3>Billing</h3>
-                    <hr>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Billing</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group col-xs-6">
+                                <label class="control-label" for="bill-firstname">First Name <span class="form-required">*</span></label>
+                                <input required type="text" class="form-control input-sm form-class-set" id="bill-firstname" placeholder="First Name">
+                            </div>
+                            <div class="form-group col-xs-6">
+                                <label class="control-label" for="bill-lastname">Last Name <span class="form-required">*</span></label>
+                                <input required type="text" class="form-control input-sm form-class-set" id="bill-lastname" placeholder="Last Name">
+                            </div>
+                            <div class="form-group col-xs-6">
+                                <label class="control-label" for="bill-address1">Address Line 1 <span class="form-required">*</span></label>
+                                <input required type="text" class="form-control input-sm form-class-set" id="bill-address1" placeholder="Address 1">
+                            </div>
+                            <div class="form-group col-xs-6">
+                                <label for="bill-company">Company</label>
+                                <input type="text" class="form-control input-sm" id="bill-company" placeholder="Company">
+                            </div>
+                            <div class="form-group col-xs-6">
+                                <label for="bill-address2">Address Line 2</label>
+                                <input type="text" class="form-control input-sm" id="bill-address2" placeholder="Address 2">
+                            </div>
+                            <div class="form-group col-xs-3">
+                                <label class="control-label" for="bill-state">State <span class="form-required">*</span></label>
+                                <select required class="form-control input-sm form-class-set" id="bill-state" placeholder="State" name="">
+                                    <option value="">Select</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AK">AK</option>
+                                    <option value="AZ">AZ</option>
+                                    <option value="AR">AR</option>
+                                    <option value="CA">CA</option>
+                                    <option value="CO">CO</option>
+                                    <option value="CT">CT</option>
+                                    <option value="DE">DE</option>
+                                    <option value="DC">DC</option>
+                                    <option value="FL">FL</option>
+                                    <option value="GA">GA</option>
+                                    <option value="HI">HI</option>
+                                    <option value="ID">ID</option>
+                                    <option value="IL">IL</option>
+                                    <option value="IN">IN</option>
+                                    <option value="IA">IA</option>
+                                    <option value="KS">KS</option>
+                                    <option value="KY">KY</option>
+                                    <option value="LA">LA</option>
+                                    <option value="ME">ME</option>
+                                    <option value="MD">MD</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MI">MI</option>
+                                    <option value="MN">MN</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MO">MO</option>
+                                    <option value="MT">MT</option>
+                                    <option value="NE">NE</option>
+                                    <option value="NV">NV</option>
+                                    <option value="NH">NH</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="NM">NM</option>
+                                    <option value="NY">NY</option>
+                                    <option value="NC">NC</option>
+                                    <option value="ND">ND</option>
+                                    <option value="OH">OH</option>
+                                    <option value="OK">OK</option>
+                                    <option value="OR">OR</option>
+                                    <option value="PA">PA</option>
+                                    <option value="RI">RI</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SD">SD</option>
+                                    <option value="TN">TN</option>
+                                    <option value="TX">TX</option>
+                                    <option value="UT">UT</option>
+                                    <option value="VT">VT</option>
+                                    <option value="VA">VA</option>
+                                    <option value="WA">WA</option>
+                                    <option value="WV">WV</option>
+                                    <option value="WI">WI</option>
+                                    <option value="WY">WY</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-xs-3">
+                                <label class="control-label" for="bill-zipcode">ZIP <span class="form-required">*</span></label>
+                                <input required type="text" class="form-control input-sm form-class-set" id="bill-zipcode" pattern="\d{5}-?(\d{4})?" maxlength="10" placeholder="ZIP">
+                                <!-- Adding space to even out box heights -->
+                                <br>
+                                <br>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-xs-6">
-                <label class="control-label" for="bill-firstname">First Name <span class="form-required">*</span></label>
-                <input required type="text" class="form-control input-sm form-class-set" id="bill-firstname" placeholder="First Name">
-            </div>
-            <div class="form-group col-xs-6">
-                <label class="control-label" for="bill-lastname">Last Name <span class="form-required">*</span></label>
-                <input required type="text" class="form-control input-sm form-class-set" id="bill-lastname" placeholder="Last Name">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="bill-company">Company</label>
-                <input type="text" class="form-control input-sm" id="bill-company" placeholder="Company">
-            </div>
-            <div class="form-group col-xs-6">
-                <label class="control-label" for="bill-address1">Address Line 1 <span class="form-required">*</span></label>
-                <input required type="text" class="form-control input-sm form-class-set" id="bill-address1" placeholder="Address 1">
-            </div>
-            <div class="form-group col-xs-6">
-                <label for="bill-address2">Address Line 2</label>
-                <input type="text" class="form-control input-sm" id="bill-address2" placeholder="Address 2">
-            </div>
-            <div class="form-group col-xs-3">
-                <label class="control-label" for="bill-state">State <span class="form-required">*</span></label>
-                <!-- <input type="select" class="form-control input-sm" id="input-state" placeholder="State"> -->
-                <select required class="form-control input-sm form-class-set" id="bill-state" placeholder="State" name="">
-                      <option value="">Select</option>
-                      <option value="AL">AL</option>
-                      <option value="AK">AK</option>
-                      <option value="AZ">AZ</option>
-                      <option value="AR">AR</option>
-                      <option value="CA">CA</option>
-                      <option value="CO">CO</option>
-                      <option value="CT">CT</option>
-                      <option value="DE">DE</option>
-                      <option value="DC">DC</option>
-                      <option value="FL">FL</option>
-                      <option value="GA">GA</option>
-                      <option value="HI">HI</option>
-                      <option value="ID">ID</option>
-                      <option value="IL">IL</option>
-                      <option value="IN">IN</option>
-                      <option value="IA">IA</option>
-                      <option value="KS">KS</option>
-                      <option value="KY">KY</option>
-                      <option value="LA">LA</option>
-                      <option value="ME">ME</option>
-                      <option value="MD">MD</option>
-                      <option value="MA">MA</option>
-                      <option value="MI">MI</option>
-                      <option value="MN">MN</option>
-                      <option value="MS">MS</option>
-                      <option value="MO">MO</option>
-                      <option value="MT">MT</option>
-                      <option value="NE">NE</option>
-                      <option value="NV">NV</option>
-                      <option value="NH">NH</option>
-                      <option value="NJ">NJ</option>
-                      <option value="NM">NM</option>
-                      <option value="NY">NY</option>
-                      <option value="NC">NC</option>
-                      <option value="ND">ND</option>
-                      <option value="OH">OH</option>
-                      <option value="OK">OK</option>
-                      <option value="OR">OR</option>
-                      <option value="PA">PA</option>
-                      <option value="RI">RI</option>
-                      <option value="SC">SC</option>
-                      <option value="SD">SD</option>
-                      <option value="TN">TN</option>
-                      <option value="TX">TX</option>
-                      <option value="UT">UT</option>
-                      <option value="VT">VT</option>
-                      <option value="VA">VA</option>
-                      <option value="WA">WA</option>
-                      <option value="WV">WV</option>
-                      <option value="WI">WI</option>
-                      <option value="WY">WY</option>
-                  </select>
-            </div>
-            <div class="form-group col-xs-3">
-                <label class="control-label" for="bill-zipcode">ZIP <span class="form-required">*</span></label>
-                <input required type="text" class="form-control input-sm form-class-set" id="bill-zipcode" pattern="\d{5}-?(\d{4})?" maxlength="10" placeholder="ZIP">
             </div>
         </div>
     </div>
